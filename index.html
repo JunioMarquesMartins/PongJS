@@ -6,11 +6,13 @@
 		<style>
 			body {
 				font-family: Arial, Helvetica, sans-serif;
+				background: rgb(63,94,251);
+				background: linear-gradient(90deg, rgba(63,94,251,1) 0%, rgb(60 24 44) 100%);
 			}
 			canvas {
 				background-color: #000000;
 				width: 100%;
-				height: calc(100vh - 20px);
+				height: calc(60vh);
 				overflow: hidden;
 			}
 			#inicio-game {
@@ -18,7 +20,17 @@
 				color: rgb(19, 11, 11); text-align: center; font-size: 30px; font-family: arial; font-weight: bold; text-transform: uppercase;
 			}
 			
-			#btn-iniciar { width: 200px; height: 34px; font-size: 20px; color: #ccc; margin-top: 20px; cursor: pointer; border: 0; background:#424040; }
+			#btn-iniciar {
+				width: 200px;
+				font-size: 20px;
+				color: #fff;
+				margin-top: 20px;
+				cursor: pointer;
+				background: #4240400a;
+				border: 1px solid white;
+				padding: 12px 20px;
+				border-radius: 5px;
+			}
 			
 			.elementoHide { display: none; }
 			.elementoOpacity { opacity: .1; }
@@ -26,6 +38,30 @@
 			#teclas-left { position: absolute; left: 50%; width: 60px; margin-left: -380px; top: 50%; margin-top: -200px; color:#ffffff; }
 			#teclas-right { position: absolute; left: 50%; margin-left: 320px; width: 60px; top: 50%; margin-top: -200px; color:#ffffff; }
 			p {color:white;}
+
+			#controls {
+				background: #ddd;
+				padding: 4rem 60px;
+				display: flex;
+				justify-content: space-between;
+				height: 30vh;
+				background: url('./bg.jpeg') 0 20% no-repeat;
+			}
+			#controls button {
+				margin: 10px 0;
+				padding: 20px;
+				background: #ffcb0000;
+				border: 0;
+				color: white;
+				font-weight: bold;
+				font-size: 20px;
+				box-shadow: 0 0 18px 8px #513595 inset, 0 0 8px 4px #00000014;
+				border-radius: 10px;
+			}
+			#controls .left, #controls .right {
+				display: flex;
+				flex-flow: column;
+			}
 		</style>
 	</head>
 	<body>
@@ -33,7 +69,6 @@
 			<p>Pong JS</p>
 			<input id="jugador1" type="hidden" value="1º jugador">
 			<input id="jugador2" type="hidden" value="2º jugador">
-			<input id="btn-iniciar" type="button" value="iniciar">	
 		</div>
 		<div id="teclas-left">
 			<span>Subir W</span>
@@ -43,7 +78,21 @@
 			<span>flecha Arriba</span>
 			<span>flecha Abajo </span>
 		</div>
+		
 		<canvas id="canvas"></canvas>
+		<div id="controls">
+			<div class="left">
+				<button onclick="clickMoveActions('leftUp')" class="up">UP</button>
+				<button onclick="clickMoveActions('leftDown')" class="down">DOWM</button>
+			</div>
+			<div class="center">
+				<input id="btn-iniciar" type="button" value="PLAY">	
+			</div>
+			<div class="right">
+				<button onclick="clickMoveActions('rightUp')" class="up">UP</button>
+				<button onclick="clickMoveActions('rightDown')" class="down">DOWM</button>
+			</div>
+		</div>
 		<script src="./pong.js"></script>
 	</body>
 </html>

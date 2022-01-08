@@ -38,21 +38,34 @@ const right = {
 
 const keys = {};
 
-document.addEventListener("keydown", function(t) {
-    keys[t.keyCode] = !0
+document.addEventListener("keydown", function(e) {
+    keys[e.keyCode] = !0
 }); 
-document.addEventListener("keyup", function(t) {
-    delete keys[t.keyCode]
+document.addEventListener("keyup", function(e) {
+    delete keys[e.keyCode]
 });
 
+const clickMoveActions = function(movePosition) {
+
+    movePosition === 'leftUp' && left.y > 0 ? 
+    left.y -= 100 : 
+    movePosition === 'leftDown' && left.y + left.alto < canvas.height && (left.y += 100), 
+
+    movePosition === 'rightUp' && right.y > 0 ? 
+    right.y -= 60 : 
+    movePosition === 'rightDown' && right.y + right.alto < canvas.height && (right.y += 60)
+};
+
 const move = function() {
+
     87 in keys && left.y > 0 ? 
     left.y -= left.speed : 
     83 in keys && left.y + left.alto < canvas.height && (left.y += left.speed), 
-    
+
     38 in keys && right.y > 0 ? 
     right.y -= right.speed : 
     40 in keys && right.y + right.alto < canvas.height && (right.y += right.speed)
+
 };
 const movecicle = function() {
     cicle.y + cicle.alto >= left.y && cicle.y <= left.y + left.alto && cicle.x <= left.x + left.ancho ? 
@@ -67,8 +80,8 @@ const movecicle = function() {
     updatePong("player 2") : 
     cicle.x + cicle.ancho > right.x + 15 && updatePong("player 1")
 };
-const updatePong = function(t) {
-    "player 1" == t ? 
+const updatePong = function(e) {
+    "player 1" == e ? 
     ++left.score : 
     ++right.score, 
     
@@ -79,8 +92,8 @@ const updatePong = function(t) {
     cicle.mod = 0
 };
 
-
 const render = function() {
+    
     cx.clearRect(0, 0, canvas.width, canvas.height), 
     move(), 
     movecicle(), 
@@ -88,6 +101,7 @@ const render = function() {
     cx.fillRect(cicle.x, cicle.y, cicle.ancho, cicle.alto), 
     cx.fillRect(left.x, left.y, left.ancho, left.alto), 
     cx.fillRect(right.x, right.y, right.ancho, right.alto)
+
 };
 
 render();
@@ -104,6 +118,6 @@ inicio.onclick = function(t) {
     setInterval(render, 5),
     setInterval(usr, 5), 
     boxInicio.className = "elementoHide",
-    teclasLeft.className = "elementoOpacity",
-    teclasRight.className = "elementoOpacity"
+    teclasLeft.className = "elementoHide",
+    teclasRight.className = "elementoHide"
 }
