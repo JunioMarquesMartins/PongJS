@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<title>Pong</title>
+		<style>
+			body {
+				font-family: Arial, Helvetica, sans-serif;
+			}
+			canvas {
+				background-color: #000000;
+				width: 100%;
+				height: calc(100vh - 20px);
+				overflow: hidden;
+			}
+			#inicio-game {
+				position: absolute; left: 50%; top: 0; margin-left: -200px; margin-top: 230px; width: 400px; z-index: 10; 
+				color: rgb(19, 11, 11); text-align: center; font-size: 30px; font-family: arial; font-weight: bold; text-transform: uppercase;
+			}
+			
+			#btn-iniciar { width: 200px; height: 34px; font-size: 20px; color: #ccc; margin-top: 20px; cursor: pointer; border: 0; background:#424040; }
+			
+			.elementoHide { display: none; }
+			.elementoOpacity { opacity: .1; }
+			
+			#teclas-left { position: absolute; left: 50%; width: 60px; margin-left: -380px; top: 50%; margin-top: -200px; color:#ffffff; }
+			#teclas-right { position: absolute; left: 50%; margin-left: 320px; width: 60px; top: 50%; margin-top: -200px; color:#ffffff; }
+			p {color:white;}
+		</style>
+	</head>
+	<body>
+		<div id="inicio-game">
+			<p>Pong JS</p>
+			<input id="jugador1" type="hidden" value="1º jugador">
+			<input id="jugador2" type="hidden" value="2º jugador">
+			<input id="btn-iniciar" type="button" value="iniciar">	
+		</div>
+		<div id="teclas-left">
+			<span>Subir W</span>
+			<span>Bajar S</span>
+		</div>
+		<div id="teclas-right">
+			<span>flecha Arriba</span>
+			<span>flecha Abajo </span>
+		</div>
+		<canvas id="canvas"></canvas>
+		<script src="./pong.js"></script>
+	</body>
+</html>
