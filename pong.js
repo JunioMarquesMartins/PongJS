@@ -48,12 +48,12 @@ document.addEventListener("keyup", function(e) {
 const clickMoveActions = function(movePosition) {
 
     movePosition === 'leftUp' && left.y > 0 ? 
-    left.y -= 100 : 
-    movePosition === 'leftDown' && left.y + left.alto < canvas.height && (left.y += 100), 
+    left.y -= 160 : 
+    movePosition === 'leftDown' && left.y + left.alto < canvas.height && (left.y += 160), 
 
     movePosition === 'rightUp' && right.y > 0 ? 
-    right.y -= 60 : 
-    movePosition === 'rightDown' && right.y + right.alto < canvas.height && (right.y += 60)
+    right.y -= 160 : 
+    movePosition === 'rightDown' && right.y + right.alto < canvas.height && (right.y += 160)
 };
 
 const move = function() {
