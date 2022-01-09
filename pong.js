@@ -20,7 +20,7 @@ const cicle = {
 const left = {
     x: 10,
     y: canvas.height / 2 - 80,
-    elHeight: 160,
+    elHeight: 200,
     elWidth: 20,
     diry: 0,
     score: 0,
@@ -29,7 +29,7 @@ const left = {
 const right = {
     x: canvas.width - 30,
     y: canvas.height / 2 - 80,
-    elHeight: 160,
+    elHeight: 200,
     elWidth: 20,
     diry: 0,
     score: 0,
@@ -47,8 +47,8 @@ document.addEventListener("keyup", function(e) {
 
 const clickMoveActions = function(movePosition) {
 
-    const speed = 200;
-    const breakMove = 150;
+    const speed = 180;
+    const breakMove = 100;
 
     movePosition === 'leftUp' && left.y > breakMove ? 
     left.y -= speed : 

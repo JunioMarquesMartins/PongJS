@@ -4,7 +4,7 @@ En Desktop se puede jugar 02 personas con en el mismo teclado
 | Jugadores   |      Subir      |  Bajar |
 |----------|:-------------:|------:|
 | Jugador 1 | tecla (W) | tecla (S) |
-| Jugador 2 | pulsar flecha arriba |  pulsar flecha abajo |
+| Jugador 2 | pulsar flecha arriba | pulsar flecha abajo |
 
 
 Para la versión mobile sólo esta activo los botones "UP/DOWN"
